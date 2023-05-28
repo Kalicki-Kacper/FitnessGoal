@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel = AddNewMealViewModel()
+   
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,6 +33,16 @@ struct ContentView: View {
                             }
                         }
                         .padding(.horizontal)
+                        Text("Your meals today:")
+                            .font(.title)
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 25) {
+                                MealCardView(meal: Meal(nameOfMeal: "", caloriesOfMeal: 9, components: "", componentsCalories: 9, datePublished: ""))
+                              
+                            }
+
+                        }
+                   
                     }
                 }
                 .overlay(alignment: .bottom) {

@@ -8,48 +8,82 @@
 import SwiftUI
 
 struct AddView: View {
-    let columns = [GridItem(.fixed(300)), GridItem(.fixed(200))]
-    
+    @ObservedObject var viewModel = AddNewMealViewModel()
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color(.systemGray5)
-                    .ignoresSafeArea()
-                VStack {
-                    ScrollView {
-                        LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())],spacing: 20) {
-                            ForEach(1..<19) { _ in
-                                FoodCardView()
+        NavigationView{
+            VStack {
+                Form {
+                    Section(header: Text("Name")) {
+                        TextField("Meal name", text: $viewModel.meal.nameOfMeal)
+                    }
+                    Section(header: Text("Total Kcal")) {
+                        TextField("Kcal", value: $viewModel.meal.caloriesOfMeal, formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
+                    }
+                    Section(header: Text("Enter your ingridnet")) {
+                        HStack{
+                            TextField("Name", text: $viewModel.meal.components)
+                            //  .focused($isFocused)
+                            Divider()
+                            TextField("Kcal:", value: $viewModel.meal.componentsCalories, formatter: NumberFormatter())
+                            //  .focused($isFocused)
+                                .keyboardType(.numberPad)
+                            Spacer()
+                            Divider()
+                            Button {
+                                viewModel.addMeal()
+                                
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .scaleEffect(1.5)
                             }
                         }
-                        .padding(.horizontal)
-                        
+                    }
+                    Section(header: Text("Ingridients")) {
+                        VStack(alignment: .trailing){
+                            ForEach(viewModel.nameOFIgredients, id: \.self){ ingridient in
+                                Text(ingridient)
+                            }
+                        }
                     }
                 }
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Label("Cancel", systemImage: "xmark")
+                                .labelsHidden()
+                        }
+                        
+                    }
+                    ToolbarItem {
+                        
+                        Button {
+                            viewModel.saveMeal()
+                            //    navigateToMeal.toggle()
+                            dismiss()
+                            viewModel.getMeals()
+                        } label: {
+                            Label("Done", systemImage: "checkmark")
+                                .labelsHidden()
+                        }
+                    }
+                })
+                .navigationTitle("Add New Meal")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
-        .navigationTitle("Your Meals today:")
+        .navigationViewStyle(.stack)
     }
 }
-
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView()
-    }
-}
-
-struct FoodCardView: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
-            Text("Meal 1")
-            HStack {
-                Image(systemName: "carrot")
-                Text("\(Int.random(in: 0...1000)) kcal")
-            }
+    
+    struct AddView_Previews: PreviewProvider {
+        static var previews: some View {
+            AddView()
         }
-        .frame(width: 125,height: 100)
-        .foregroundColor(.white)
-        .background(.cyan)
-        .cornerRadius(8)
     }
-}
+    
+

@@ -11,11 +11,10 @@ import Foundation
 extension SettingsView {
     @MainActor class SettingsViewModel: ObservableObject {
        
-        @Published var user = UserData(age: 0, height: 0, weight: 0)
+        @Published var user = UserData.user
   
-        func saveClick () {
-           print(user)
-
+        func saveClick() {
+            print(user)
         }
     }
 }
