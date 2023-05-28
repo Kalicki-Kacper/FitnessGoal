@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddView: View {
     let columns = [GridItem(.fixed(300)), GridItem(.fixed(200))]
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -17,22 +17,18 @@ struct AddView: View {
                     .ignoresSafeArea()
                 VStack {
                     ScrollView {
-                        
                         LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())],spacing: 20) {
                             ForEach(1..<19) { _ in
                                 FoodCardView()
                             }
                         }
                         .padding(.horizontal)
-                    
+                        
                     }
                 }
             }
-        
-            
         }
         .navigationTitle("Your Meals today:")
-        
     }
 }
 

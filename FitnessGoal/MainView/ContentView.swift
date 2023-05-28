@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,7 +19,7 @@ struct ContentView: View {
                         Spacer()
                         ScrollView(.horizontal) {
                             HStack(spacing: 25){
-                              CaloriesCardView()
+                                CaloriesCardView()
                             }
                         }
                         .padding(.horizontal)
@@ -29,23 +28,16 @@ struct ContentView: View {
                             HStack(spacing: 25){
                                 StepsCardView()
                                 StepsCardView()
-                                
                             }
                         }
                         .padding(.horizontal)
-                        
                     }
                 }
                 .overlay(alignment: .bottom) {
-                   BottomMenuView()
+                    BottomMenuView()
                 }
-                
-                
-                
-                
             }
         }
-        
     }
 }
 

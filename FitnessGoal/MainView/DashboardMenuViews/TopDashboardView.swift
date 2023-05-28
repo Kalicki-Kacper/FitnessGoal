@@ -18,14 +18,12 @@ struct TopDashboardView: View {
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.white, lineWidth: 1))
                     .shadow(radius: 10)
-                
             }
             Spacer()
             Text("We're so happy to see you again")
                 .font(.largeTitle)
                 .bold()
             Spacer()
-            
             Button(action: {} ) {
                 Image(systemName: "bell")
                     .resizable()
@@ -34,7 +32,6 @@ struct TopDashboardView: View {
                     .foregroundColor(.black)
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(10)
-                
             }
         }
         .padding(.horizontal)

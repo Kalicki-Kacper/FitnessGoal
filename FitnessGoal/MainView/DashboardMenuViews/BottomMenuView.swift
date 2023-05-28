@@ -10,7 +10,6 @@ import SwiftUI
 struct BottomMenuView: View {
     var body: some View {
             VStack {
-             
                 Divider()
                 HStack(spacing: 45) {
 //                    NavigationLink(destination: ContentView()) {
@@ -24,7 +23,6 @@ struct BottomMenuView: View {
                     NavigationLink(destination: SettingsView()) {
                         Image(systemName: "gear")
                     }
-
                 }
                 .font(.system(size: 30))
                 .foregroundColor(.black)
