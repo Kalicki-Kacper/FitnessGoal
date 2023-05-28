@@ -13,6 +13,9 @@
 		E753940629EC00E900DD9C91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E753940529EC00E900DD9C91 /* ContentView.swift */; };
 		E753940829EC00EA00DD9C91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E753940729EC00EA00DD9C91 /* Assets.xcassets */; };
 		E753940B29EC00EA00DD9C91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E753940A29EC00EA00DD9C91 /* Preview Assets.xcassets */; };
+		E769B28F2A2371C900E5A738 /* CaloriesCardViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B28E2A2371C900E5A738 /* CaloriesCardViewViewModel.swift */; };
+		E769B2922A23783D00E5A738 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B2912A23783D00E5A738 /* SettingsViewModel.swift */; };
+		E769B2952A237BB800E5A738 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B2942A237BB800E5A738 /* SettingsModel.swift */; };
 		E7BAE0D02A2367AF00533160 /* CaloriesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */; };
 		E7BAE0D22A2367CC00533160 /* StepsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0D12A2367CC00533160 /* StepsCardView.swift */; };
 		E7BAE0D52A23683500533160 /* TopDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0D42A23683500533160 /* TopDashboardView.swift */; };
@@ -27,6 +30,9 @@
 		E753940529EC00E900DD9C91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E753940729EC00EA00DD9C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E753940A29EC00EA00DD9C91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E769B28E2A2371C900E5A738 /* CaloriesCardViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCardViewViewModel.swift; sourceTree = "<group>"; };
+		E769B2912A23783D00E5A738 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E769B2942A237BB800E5A738 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCardView.swift; sourceTree = "<group>"; };
 		E7BAE0D12A2367CC00533160 /* StepsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCardView.swift; sourceTree = "<group>"; };
 		E7BAE0D42A23683500533160 /* TopDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDashboardView.swift; sourceTree = "<group>"; };
@@ -64,9 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				E753940329EC00E900DD9C91 /* FitnessGoalApp.swift */,
-				E7BAE0CC2A23671F00533160 /* MainView */,
-				E7BAE0CD2A23673700533160 /* CardsView */,
-				E7BAE0CE2A23675300533160 /* SettingsView */,
+				E7BAE0CC2A23671F00533160 /* Main */,
+				E7BAE0CD2A23673700533160 /* Cards */,
+				E7BAE0CE2A23675300533160 /* Settings */,
 				E753940729EC00EA00DD9C91 /* Assets.xcassets */,
 				E753940929EC00EA00DD9C91 /* Preview Content */,
 			);
@@ -81,40 +87,67 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E7BAE0CC2A23671F00533160 /* MainView */ = {
+		E769B28D2A23719600E5A738 /* ContentViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E753940529EC00E900DD9C91 /* ContentView.swift */,
-				E721609629EC6332006ADF19 /* AddView.swift */,
-				E7BAE0D32A23681A00533160 /* DashboardMenuViews */,
+				E769B28E2A2371C900E5A738 /* CaloriesCardViewViewModel.swift */,
 			);
-			path = MainView;
+			path = ContentViewModel;
 			sourceTree = "<group>";
 		};
-		E7BAE0CD2A23673700533160 /* CardsView */ = {
+		E769B2902A23782600E5A738 /* SettingsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E769B2912A23783D00E5A738 /* SettingsViewModel.swift */,
+			);
+			path = SettingsViewModel;
+			sourceTree = "<group>";
+		};
+		E769B2932A237B7E00E5A738 /* SeetingsModel */ = {
+			isa = PBXGroup;
+			children = (
+				E769B2942A237BB800E5A738 /* SettingsModel.swift */,
+			);
+			path = SeetingsModel;
+			sourceTree = "<group>";
+		};
+		E7BAE0CC2A23671F00533160 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E769B28D2A23719600E5A738 /* ContentViewModel */,
+				E753940529EC00E900DD9C91 /* ContentView.swift */,
+				E721609629EC6332006ADF19 /* AddView.swift */,
+				E7BAE0D32A23681A00533160 /* DashboardMenu */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E7BAE0CD2A23673700533160 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
 				E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */,
 				E7BAE0D12A2367CC00533160 /* StepsCardView.swift */,
 			);
-			path = CardsView;
+			path = Cards;
 			sourceTree = "<group>";
 		};
-		E7BAE0CE2A23675300533160 /* SettingsView */ = {
+		E7BAE0CE2A23675300533160 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E769B2932A237B7E00E5A738 /* SeetingsModel */,
+				E769B2902A23782600E5A738 /* SettingsViewModel */,
 				E721609429EC5FCA006ADF19 /* SettingsView.swift */,
 			);
-			path = SettingsView;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		E7BAE0D32A23681A00533160 /* DashboardMenuViews */ = {
+		E7BAE0D32A23681A00533160 /* DashboardMenu */ = {
 			isa = PBXGroup;
 			children = (
 				E7BAE0D42A23683500533160 /* TopDashboardView.swift */,
 				E7BAE0D62A23684800533160 /* BottomMenuView.swift */,
 			);
-			path = DashboardMenuViews;
+			path = DashboardMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,11 +220,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E769B2922A23783D00E5A738 /* SettingsViewModel.swift in Sources */,
 				E721609729EC6332006ADF19 /* AddView.swift in Sources */,
+				E769B2952A237BB800E5A738 /* SettingsModel.swift in Sources */,
 				E721609529EC5FCA006ADF19 /* SettingsView.swift in Sources */,
 				E7BAE0D02A2367AF00533160 /* CaloriesCardView.swift in Sources */,
 				E753940629EC00E900DD9C91 /* ContentView.swift in Sources */,
 				E7BAE0D72A23684800533160 /* BottomMenuView.swift in Sources */,
+				E769B28F2A2371C900E5A738 /* CaloriesCardViewViewModel.swift in Sources */,
 				E7BAE0D22A2367CC00533160 /* StepsCardView.swift in Sources */,
 				E7BAE0D52A23683500533160 /* TopDashboardView.swift in Sources */,
 				E753940429EC00E900DD9C91 /* FitnessGoalApp.swift in Sources */,
