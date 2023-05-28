@@ -16,10 +16,14 @@ struct CaloriesCardView: View {
                 .font(.system(size: 36))
                 .bold()
             HStack {
-                VStack {
-                    Image(systemName: "circle.dashed")
-                        .font(.system(size: 140))
-                        .foregroundColor(.yellow)
+                ZStack {
+                    VStack {
+                        Image(systemName: "circle.dashed")
+                            .font(.system(size: 140))
+                            .foregroundColor(.yellow)
+                    }
+                    Text("1300/2000")
+                        
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 10) {

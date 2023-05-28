@@ -24,7 +24,7 @@ struct SettingsView: View {
                         Section("Information about you"){
                             HStack(){
                                 Text("Age:")
-                                Spacer()
+                                Spacer()                            
                                 TextField("Age", value: $viewModel.user.age, format: .number)
                             }
                             HStack(){
