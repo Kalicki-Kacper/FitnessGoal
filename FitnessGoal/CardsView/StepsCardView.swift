@@ -22,8 +22,6 @@ struct StepsCardView: View {
             ProgressView(value: Float.random(in: 0...15000), total: 15000)
                 .accentColor(.indigo)
                 .scaleEffect(x: 1, y: 4, anchor: .center)
-            
-            
         }
         .padding(.horizontal)
         .frame(width: 200, height: 175,alignment: .leading)

@@ -13,15 +13,11 @@ struct CaloriesCardView: View {
             Text("Calories")
                 .font(.system(size: 36))
                 .bold()
-            
             HStack {
                 VStack {
-                    
                     Image(systemName: "circle.dashed")
                         .font(.system(size: 140))
                         .foregroundColor(.yellow)
-
-                    
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 10) {
@@ -51,8 +47,6 @@ struct CaloriesCardView: View {
                     }
                 }
                 .padding(.horizontal)
-                
-                
             }
         }
         .padding()

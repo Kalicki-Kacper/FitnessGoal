@@ -26,29 +26,21 @@ struct SettingsView: View {
                             Text("Age:")
                             Spacer()
                             TextField("Age", text: $age)
-
                         }
                         HStack(){
                             Text("Weight:")
                             Spacer()
                             TextField("Weight", text: $weight)
-                            
                         }
                         HStack(){
                             Text("Height:")
                             Spacer()
                             TextField("Height", text: $height)
-                            
                         }
                     }
-          
-
                 }
                 .listStyle(.sidebar)
-                Spacer()
             }
-           
-            
         }
         .navigationTitle("Settings")
     }
