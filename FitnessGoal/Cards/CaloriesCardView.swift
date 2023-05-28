@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CaloriesCardView: View {
+    @StateObject private var viewModel = CaloriesCardViewViewModel()
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Calories")
@@ -26,7 +28,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading) {
                             Text("Base Goal")
-                            Text("1,500")
+                            Text("\(viewModel.baseGoalCalories)")
                         }
                     }
                     HStack {
@@ -34,7 +36,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading) {
                             Text("Food")
-                            Text("324")
+                            Text("\(viewModel.foodEatenCalories)")
                         }
                     }
                     HStack {
@@ -42,7 +44,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading){
                             Text("Exercise")
-                            Text("300")
+                            Text("\(viewModel.excerciseBurnCalories)")
                         }
                     }
                 }
