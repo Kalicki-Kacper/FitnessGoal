@@ -9,12 +9,11 @@ import Foundation
 
 
 extension CaloriesCardView {
-    @MainActor class CaloriesCardViewViewModel: ObservableObject {
-        
+     class CaloriesCardViewViewModel: ObservableObject {
+ 
         @Published var baseGoalCalories: Int = 1500
         @Published var foodEatenCalories: Int = 123
         @Published var excerciseBurnCalories: Int = 300
-        
         
     }
     

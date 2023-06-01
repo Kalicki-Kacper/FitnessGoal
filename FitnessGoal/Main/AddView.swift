@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddView: View {
     @ObservedObject var viewModel = AddNewMealViewModel()
+    @FocusState var isFocus
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -19,20 +20,22 @@ struct AddView: View {
                         TextField("Meal name", text: $viewModel.meal.nameOfMeal)
                     }
                     Section(header: Text("Total Kcal")) {
-                        TextField("Kcal", value: $viewModel.meal.caloriesOfMeal, formatter: NumberFormatter())
+                        TextField("Kcal", value: $viewModel.meal.caloriesOfMeal, format: .number)
                             .keyboardType(.numberPad)
                     }
                     Section(header: Text("Enter your ingridnet")) {
                         HStack{
                             TextField("Name", text: $viewModel.meal.components)
-                            //  .focused($isFocused)
+                              .focused($isFocus)
                             Divider()
-                            TextField("Kcal:", value: $viewModel.meal.componentsCalories, formatter: NumberFormatter())
-                            //  .focused($isFocused)
-                                .keyboardType(.numberPad)
+                            TextField("Kcal", text: $viewModel.kcalOfIngredients)
+                      //      TextField("Kcal:", value: $viewModel.meal.componentsCalories, format: .number)
+                              .focused($isFocus)
+                              .keyboardType(.numberPad)
                             Spacer()
                             Divider()
                             Button {
+                                isFocus = false
                                 viewModel.addMeal()
                                 
                             } label: {
@@ -65,7 +68,6 @@ struct AddView: View {
                             viewModel.saveMeal()
                             //    navigateToMeal.toggle()
                             dismiss()
-                            viewModel.getMeals()
                         } label: {
                             Label("Done", systemImage: "checkmark")
                                 .labelsHidden()

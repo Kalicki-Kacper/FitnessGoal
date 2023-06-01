@@ -9,29 +9,23 @@ import SwiftUI
 
 struct BottomMenuView: View {
     var body: some View {
-            VStack {
-                Divider()
-                HStack(spacing: 45) {
-//                    NavigationLink(destination: ContentView()) {
-//                        Image(systemName: "house")
-//                    }
-  //                  Divider()
-                    NavigationLink(destination: AddView()) {
-                        Image(systemName: "plus.circle")
-                    }
-                    Divider()
-                    NavigationLink(destination: SettingsView()) {
-                        Image(systemName: "gear")
-                    }
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
-                .font(.system(size: 30))
-                .foregroundColor(.black)
-                .frame(width: 400, height: 50)
-                .background(.clear)
-                .cornerRadius(8)
-                .padding()
-            }
+            
+            AddView()
+                .tabItem {
+                    Label("Add Meal", systemImage: "plus.circle")
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
+    }
 }
 
 struct bottomMenuView_Previews: PreviewProvider {

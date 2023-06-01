@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+   // @EnvironmentObject var user: SettingsViewModel
     @ObservedObject var viewModel = SettingsViewModel()
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -37,10 +37,15 @@ struct SettingsView: View {
                                 Spacer()
                                 TextField("Height", value: $viewModel.user.height, format: .number)
                             }
+                            HStack(){
+                                Text("Calories for day:")
+                                Spacer()
+                                TextField("Calories for day", value: $viewModel.user.calories, format: .number)
+                            }
                         }
                     }
                     .listStyle(.insetGrouped)
-                    .frame(height: 200)
+                    .frame(height: 250)
                     .keyboardType(.decimalPad)
                     Spacer()
                     Button("Save") {
@@ -56,7 +61,9 @@ struct SettingsView: View {
         
         }
         .navigationTitle("Settings")
+        .navigationViewStyle(.stack)
     }
+    
 }
 
 struct SettingsView_Previews: PreviewProvider {
