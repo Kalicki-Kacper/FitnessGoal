@@ -27,10 +27,10 @@ struct Meal: Identifiable {
 
 
 extension UserData {
-    static let user: UserData = UserData(age: 0,
-                                         height: 0,
-                                         weight: 0,
-                                         calories: 0)
+    static var user: UserData = UserData(age: 20,
+                                         height: 170,
+                                         weight: 55,
+                                         calories: 2000)
 }
 
 extension Meal {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddView: View {
-    @ObservedObject var viewModel = AddNewMealViewModel()
+    @EnvironmentObject var viewModel: AddNewMealViewModel
     @FocusState var isFocus
     @Environment(\.dismiss) var dismiss
 

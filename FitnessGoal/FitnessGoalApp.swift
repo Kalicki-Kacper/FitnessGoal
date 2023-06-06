@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct FitnessGoalApp: App {
     @StateObject var mealsViewModel = AddNewMealViewModel()
+    @StateObject var userData = SettingsViewModel()
+
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(mealsViewModel)
+                .environmentObject(userData)
         }
     }
 }

@@ -34,7 +34,7 @@ struct MealCardView: View {
         .frame(width: 160, height: 150, alignment: .top)
         .background(LinearGradient(gradient: Gradient(colors: [.yellow,.orange,.red]), startPoint: .top, endPoint: .bottom))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 10)
+        .shadow(radius: 3)
     }
 }
 

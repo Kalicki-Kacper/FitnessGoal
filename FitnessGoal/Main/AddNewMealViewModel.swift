@@ -11,12 +11,13 @@ class AddNewMealViewModel: ObservableObject {
     @Published var meal = Meal(nameOfMeal: "", caloriesOfMeal: 0, components: "", componentsCalories: 0, datePublished: "")
     
     @Published var kcalOfIngredients: String = ""
-    @Published var meals: [Meal]
+    @Published var meals: [Meal] = []
     @Published var nameOFIgredients = [String]()
-    
+    @Published var caloriesOfMeal = 0
     
     init() {
         meals = Meal.meals
+        caloriesOfMeal = getCaloriesEaten(meals)
     }
     
     func addMeal() {
@@ -35,22 +36,42 @@ class AddNewMealViewModel: ObservableObject {
         kcalOfIngredients = ""
     }
     
+    func newMeal() {
+        meal = Meal(nameOfMeal: "", caloriesOfMeal: 0, components: "", componentsCalories: 0, datePublished: "")
+        nameOFIgredients = []
+    }
+    
+    
     func saveMeal(){
         
         let now = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh-mm"
+        dateFormatter.dateFormat = "HH:MM"
+        
         
         let datePublished = dateFormatter.string(from: now)
         let components = nameOFIgredients.joined(separator: "\n")
         
         let meal = Meal(nameOfMeal: meal.nameOfMeal, caloriesOfMeal: meal.caloriesOfMeal, components: components, componentsCalories: meal.componentsCalories, datePublished: datePublished)
         meals.append(meal)
+        caloriesOfMeal = getCaloriesEaten(meals)
+        newMeal()
     }
     
     func getMeals() -> [Meal] {
         return meals
     }
+    
+    
+     
+     func getCaloriesEaten(_ meals: [Meal]) -> Int {
+         var calories = 0
+         for meal in meals {
+             calories += meal.caloriesOfMeal
+         }
+         return calories
+     }
+ 
 }
 
 

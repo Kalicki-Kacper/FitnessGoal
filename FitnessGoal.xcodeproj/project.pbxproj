@@ -18,6 +18,7 @@
 		E769B2952A237BB800E5A738 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B2942A237BB800E5A738 /* Model.swift */; };
 		E769B29E2A23A2AF00E5A738 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B29D2A23A2AF00E5A738 /* MealCardView.swift */; };
 		E769B2A02A23A45F00E5A738 /* AddNewMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E769B29F2A23A45F00E5A738 /* AddNewMealViewModel.swift */; };
+		E79C82292A2F7CBF00CF2B76 /* StepsCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79C82282A2F7CBF00CF2B76 /* StepsCardViewModel.swift */; };
 		E7BAE0D02A2367AF00533160 /* CaloriesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */; };
 		E7BAE0D22A2367CC00533160 /* StepsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0D12A2367CC00533160 /* StepsCardView.swift */; };
 		E7BAE0D52A23683500533160 /* TopDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE0D42A23683500533160 /* TopDashboardView.swift */; };
@@ -38,6 +39,7 @@
 		E769B2942A237BB800E5A738 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E769B29D2A23A2AF00E5A738 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 		E769B29F2A23A45F00E5A738 /* AddNewMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealViewModel.swift; sourceTree = "<group>"; };
+		E79C82282A2F7CBF00CF2B76 /* StepsCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCardViewModel.swift; sourceTree = "<group>"; };
 		E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCardView.swift; sourceTree = "<group>"; };
 		E7BAE0D12A2367CC00533160 /* StepsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCardView.swift; sourceTree = "<group>"; };
 		E7BAE0D42A23683500533160 /* TopDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopDashboardView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				E7BAE0CF2A2367AF00533160 /* CaloriesCardView.swift */,
 				E769B29D2A23A2AF00E5A738 /* MealCardView.swift */,
 				E7BAE0D12A2367CC00533160 /* StepsCardView.swift */,
+				E79C82282A2F7CBF00CF2B76 /* StepsCardViewModel.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				E721609729EC6332006ADF19 /* AddView.swift in Sources */,
 				E769B2952A237BB800E5A738 /* Model.swift in Sources */,
 				E721609529EC5FCA006ADF19 /* SettingsView.swift in Sources */,
+				E79C82292A2F7CBF00CF2B76 /* StepsCardViewModel.swift in Sources */,
 				E769B2A02A23A45F00E5A738 /* AddNewMealViewModel.swift in Sources */,
 				E7BAE0D02A2367AF00533160 /* CaloriesCardView.swift in Sources */,
 				E753940629EC00E900DD9C91 /* ContentView.swift in Sources */,
