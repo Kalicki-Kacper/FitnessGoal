@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CaloriesCardView: View {
-    @ObservedObject var user: SettingsViewModel
+    @EnvironmentObject var userSettings: SettingsViewModel
+    @EnvironmentObject var meals: AddNewMealViewModel
     @ObservedObject var viewModel = CaloriesCardViewViewModel()
     
     var body: some View {
@@ -23,7 +24,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 140))
                             .foregroundColor(.yellow)
                     }
-                    Text("\(user.user.calories)")
+                    Text("\(userSettings.user.calories)")
                         
                 }
                 Spacer()
@@ -33,7 +34,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading) {
                             Text("Base Goal")
-                            Text("\(user.user.calories)")
+                            Text("\(userSettings.user.calories)")
                         }
                     }
                     HStack {
@@ -41,7 +42,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading) {
                             Text("Food")
-                            Text("\(viewModel.foodEatenCalories)")
+                            Text("\(meals.caloriesOfMeal)")
                         }
                     }
                     HStack {
@@ -67,6 +68,6 @@ struct CaloriesCardView: View {
 
 struct CaloriesCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CaloriesCardView(user: SettingsViewModel())
+        CaloriesCardView()
     }
 }

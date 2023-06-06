@@ -21,14 +21,13 @@ struct HomeView: View {
                         Spacer()
                         ScrollView(.horizontal) {
                             HStack(spacing: 25){
-                                CaloriesCardView(user: SettingsViewModel())
+                                CaloriesCardView()
                             }
                         }
                         .padding(.horizontal)
                         Spacer()
                         ScrollView(.horizontal) {
                             HStack(spacing: 25){
-                                StepsCardView()
                                 StepsCardView()
                             }
                         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-   // @EnvironmentObject var user: SettingsViewModel
+    @EnvironmentObject var user: SettingsViewModel
     @ObservedObject var viewModel = SettingsViewModel()
     var body: some View {
         NavigationView {
@@ -25,22 +25,22 @@ struct SettingsView: View {
                             HStack(){
                                 Text("Age:")
                                 Spacer()                            
-                                TextField("Age", value: $viewModel.user.age, format: .number)
+                                TextField("Age", value: $user.user.age, format: .number)
                             }
                             HStack(){
                                 Text("Weight:")
                                 Spacer()
-                                TextField("Weight", value: $viewModel.user.weight, format: .number)
+                                TextField("Weight", value: $user.user.weight, format: .number)
                             }
                             HStack(){
                                 Text("Height:")
                                 Spacer()
-                                TextField("Height", value: $viewModel.user.height, format: .number)
+                                TextField("Height", value: $user.user.height, format: .number)
                             }
                             HStack(){
                                 Text("Calories for day:")
                                 Spacer()
-                                TextField("Calories for day", value: $viewModel.user.calories, format: .number)
+                                TextField("Calories for day", value: $user.user.calories, format: .number)
                             }
                         }
                     }
