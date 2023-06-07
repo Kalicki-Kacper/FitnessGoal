@@ -14,6 +14,7 @@ struct UserData: Identifiable {
     var height: Double
     var weight: Double
     var calories: Int
+    var stepsModel: UserSteps
 }
 
 struct Meal: Identifiable {
@@ -25,12 +26,24 @@ struct Meal: Identifiable {
     var datePublished: String
 }
 
+struct UserSteps {
+    var currentSteps: Int
+    var stepsGoal: Int
+}
+
+struct StepsModel: Identifiable {
+    let id = UUID()
+    let count: Int
+    let date: Date
+}
+
 
 extension UserData {
     static var user: UserData = UserData(age: 20,
                                          height: 170,
                                          weight: 55,
-                                         calories: 2000)
+                                         calories: 2000,
+                                         stepsModel: .init(currentSteps: 5000, stepsGoal: 15000))
 }
 
 extension Meal {

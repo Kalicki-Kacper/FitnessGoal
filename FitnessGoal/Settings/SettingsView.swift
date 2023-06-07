@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var user: SettingsViewModel
     @ObservedObject var viewModel = SettingsViewModel()
+    
     var body: some View {
         NavigationView {
             ZStack {

@@ -22,7 +22,7 @@ class AddNewMealViewModel: ObservableObject {
     
     func addMeal() {
         var mealText = meal.components
-        var kcalOfMeal = (kcalOfIngredients as NSString).integerValue
+        let kcalOfMeal = (kcalOfIngredients as NSString).integerValue
         guard mealText.count > 0 else { return }
         guard kcalOfMeal >= 0 else { return }
         mealText += "           \(kcalOfMeal)"
@@ -43,11 +43,9 @@ class AddNewMealViewModel: ObservableObject {
     
     
     func saveMeal(){
-        
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM"
-        
         
         let datePublished = dateFormatter.string(from: now)
         let components = nameOFIgredients.joined(separator: "\n")
@@ -62,16 +60,14 @@ class AddNewMealViewModel: ObservableObject {
         return meals
     }
     
+    func getCaloriesEaten(_ meals: [Meal]) -> Int {
+        var calories = 0
+        for meal in meals {
+            calories += meal.caloriesOfMeal
+        }
+        return calories
+    }
     
-     
-     func getCaloriesEaten(_ meals: [Meal]) -> Int {
-         var calories = 0
-         for meal in meals {
-             calories += meal.caloriesOfMeal
-         }
-         return calories
-     }
- 
 }
 
 
