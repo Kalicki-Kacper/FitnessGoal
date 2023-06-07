@@ -29,24 +29,32 @@ struct SettingsView: View {
                                 TextField("Age", value: $user.user.age, format: .number)
                             }
                             HStack(){
-                                Text("Weight:")
+                                Text("Weight (Kg):")
                                 Spacer()
                                 TextField("Weight", value: $user.user.weight, format: .number)
                             }
                             HStack(){
-                                Text("Height:")
+                                Text("Height (cm):")
                                 Spacer()
                                 TextField("Height", value: $user.user.height, format: .number)
                             }
-                            HStack(){
-                                Text("Calories for day:")
+                         
+                        }
+                        Section("Set your goals:") {
+                            HStack() {
+                                Text("Calories for day (kcal):")
                                 Spacer()
                                 TextField("Calories for day", value: $user.user.calories, format: .number)
+                            }
+                            
+                            HStack() {
+                                Text("Steps:")
+                                Spacer()
+                                TextField("Steps", value: $user.user.stepsModel.stepsGoal, format: .number)
                             }
                         }
                     }
                     .listStyle(.insetGrouped)
-                    .frame(height: 250)
                     .keyboardType(.decimalPad)
                     Spacer()
                     Button("Save") {
