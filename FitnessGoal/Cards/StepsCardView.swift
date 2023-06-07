@@ -6,8 +6,19 @@
 //
 
 import SwiftUI
+import HealthKitUI
 
 struct StepsCardView: View {
+    @EnvironmentObject var userSettings: SettingsViewModel
+    var healthStore: HealthStore?
+    @ObservedObject var viewModel = StepsCardViewModel()
+    
+    init() {
+        healthStore = HealthStore()
+    }
+    
+  
+    
     var body: some View {
         VStack(alignment: .leading,spacing: 15) {
             Text("Steps")
@@ -16,19 +27,33 @@ struct StepsCardView: View {
             HStack {
                 Image(systemName: "figure.walk")
                     .font(.system(size: 25))
-                Text("3500")
+                Text("\(viewModel.steps.first?.count ?? 0)")
             }
-            Text("Goal: 15,000 steps")
-            ProgressView(value: Float.random(in: 0...15000), total: 15000)
-                .accentColor(.indigo)
+            Text("Goal: \(userSettings.user.stepsModel.stepsGoal) steps")
+            ProgressView(value: Float(viewModel.steps.first?.count ?? 0), total: Float(userSettings.user.stepsModel.stepsGoal))
+                .accentColor(.yellow)
                 .scaleEffect(x: 1, y: 4, anchor: .center)
         }
         .padding(.horizontal)
         .frame(width: 200, height: 175,alignment: .leading)
         .background(.green)
         .foregroundColor(.white)
-        .cornerRadius(10)
+        .cornerRadius(20)
         .shadow(radius: 4)
+        
+        .onAppear {
+            if let healthStore = healthStore {
+                healthStore.requestAuthorization { success in
+                    if success {
+                        healthStore.calculateStep { statsCollection in
+                            if let statsCollection = statsCollection {
+                                viewModel.updateProgressFromStatistics(statsCollection)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
