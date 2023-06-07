@@ -10,9 +10,9 @@ import HealthKitUI
 
 struct StepsCardView: View {
     @EnvironmentObject var userSettings: SettingsViewModel
-    var healthStore: HealthStore?
     @ObservedObject var viewModel = StepsCardViewModel()
-    
+    var healthStore: HealthStore?
+
     init() {
         healthStore = HealthStore()
     }
@@ -31,12 +31,12 @@ struct StepsCardView: View {
             }
             Text("Goal: \(userSettings.user.stepsModel.stepsGoal) steps")
             ProgressView(value: Float(viewModel.steps.first?.count ?? 0), total: Float(userSettings.user.stepsModel.stepsGoal))
-                .accentColor(.yellow)
+                .accentColor(.blue)
                 .scaleEffect(x: 1, y: 4, anchor: .center)
         }
         .padding(.horizontal)
         .frame(width: 200, height: 175,alignment: .leading)
-        .background(.green)
+        .background(LinearGradient(gradient: Gradient(colors: [.green,.yellow]), startPoint: .top, endPoint: .bottom))
         .foregroundColor(.white)
         .cornerRadius(20)
         .shadow(radius: 4)

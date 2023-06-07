@@ -11,7 +11,7 @@ struct CaloriesCardView: View {
     @EnvironmentObject var userSettings: SettingsViewModel
     @EnvironmentObject var meals: AddNewMealViewModel
     @ObservedObject var viewModel = CaloriesCardViewViewModel()
-    
+    @State var progress: Double = 0
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Calories")
@@ -20,11 +20,13 @@ struct CaloriesCardView: View {
             HStack {
                 ZStack {
                     VStack {
-                        Image(systemName: "circle.dashed")
-                            .font(.system(size: 140))
-                            .foregroundColor(.yellow)
+                        
+                        CircleProgressBar(progress: $progress)
+//                        Image(systemName: "circle.dashed")
+//                            .font(.system(size: 140))
+//                            .foregroundColor(.yellow)
                     }
-                    Text("\(userSettings.user.calories)")
+                    Text("\(meals.caloriesOfMeal) / \(userSettings.user.calories)")
                         
                 }
                 Spacer()
@@ -59,10 +61,13 @@ struct CaloriesCardView: View {
         }
         .padding()
         .frame(width: 350, height: 250)
-        .background(.mint)
+        .background(LinearGradient(gradient: Gradient(colors: [.yellow,.green,.blue]), startPoint: .top, endPoint: .bottom))
         .foregroundColor(.white)
         .shadow(radius: 10)
-        .cornerRadius(10)
+        .cornerRadius(20)
+        .onAppear {
+         progress = viewModel.calculateProgress( Double(meals.caloriesOfMeal),Double( userSettings.user.calories))
+        }
     }
 }
 
