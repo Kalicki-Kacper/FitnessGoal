@@ -26,9 +26,9 @@ extension CaloriesCardView {
              
              statsCollection.enumerateStatistics(from: startDate, to: Date()) { (statistic, stop) in
                  DispatchQueue.main.async {
-                     let count = Int(statistic.sumQuantity()?.doubleValue(for: .count()) ?? 0)
+                     let count = Int(statistic.sumQuantity()?.doubleValue(for: .calorie()) ?? 0)
                      
-                     let activeKcal = ActiveCaloriesModel(kcalBurned: Int(count), date: statistic.startDate)
+                     let activeKcal = ActiveCaloriesModel(kcalBurned: Double(count), date: statistic.startDate)
                      self.activeKcal.append(activeKcal)
                  }
              }

@@ -23,6 +23,15 @@ import SwiftUI
         self.bmi = user.weight / pow(height, 2)
         
     }
+     
+     func setImage() -> String {
+         switch data.gender {
+         case .Female:   return "female"
+         case .Male:     return "male"
+         case .other:     return "circle"
+
+         }
+     }
 }
 
 

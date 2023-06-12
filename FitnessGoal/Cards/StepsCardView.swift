@@ -12,7 +12,8 @@ struct StepsCardView: View {
     @EnvironmentObject var userSettings: SettingsViewModel
     @ObservedObject var viewModel = StepsCardViewModel()
     var healthStore: HealthStore?
-
+    @State var showDetails = false
+    @State var dataRecived = false
     init() {
         healthStore = HealthStore()
     }
@@ -27,7 +28,7 @@ struct StepsCardView: View {
             HStack {
                 Image(systemName: "figure.walk")
                     .font(.system(size: 25))
-                Text("\(viewModel.steps.first?.count ?? 0)")
+                Text("\(viewModel.steps.last?.count ?? 0)")
             }
             Text("Goal: \(userSettings.data.stepsModel.stepsGoal) steps")
             ProgressView(value: Float(viewModel.steps.first?.count ?? 0), total: Float(userSettings.data.stepsModel.stepsGoal))
@@ -43,15 +44,22 @@ struct StepsCardView: View {
         .onAppear {
             if let healthStore = healthStore {
                 healthStore.requestAuthorization { success in
-                    if success {
+                    if success && !dataRecived {
                         healthStore.calculateStep { statsCollection in
                             if let statsCollection = statsCollection {
                                 viewModel.updateProgressFromStatistics(statsCollection)
+                                dataRecived = true
                             }
                         }
                     }
                 }
             }
+        }
+        .onTapGesture {
+            showDetails = true
+            
+        }.sheet(isPresented: $showDetails) {
+            StepCardDetails(viewModel: viewModel)
         }
     }
 }

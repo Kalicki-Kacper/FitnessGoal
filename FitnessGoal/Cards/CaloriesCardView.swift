@@ -51,8 +51,8 @@ struct CaloriesCardView: View {
                         Image(systemName: "flame")
                             .font(.system(size: 25))
                         VStack(alignment: .leading){
-                            Text("Active Calories")
-                            Text("\(viewModel.activeKcal.first?.kcalBurned ?? 0)")
+                            Text("Active")
+                     //       Text("\(viewModel.activeKcal.first?.kcalBurned ?? 0)")
                         }
                     }
                 }
@@ -77,6 +77,7 @@ struct CaloriesCardView: View {
                                 viewModel.updateActiveKcalFromStatistic(activeKcal)
                             }
                         }
+                        
                     }
                 }
             }

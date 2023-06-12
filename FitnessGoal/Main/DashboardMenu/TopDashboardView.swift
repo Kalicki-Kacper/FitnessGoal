@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct TopDashboardView: View {
+    @EnvironmentObject var user: SettingsViewModel
+
     var body: some View {
         HStack {
-            Button(action: {}) {
-                Image("photo")
+            Button(action: {
+                print(user.data.gender)
+            }) {
+                Image(user.setImage())
                     .resizable()
-                    .frame(width: 45, height: 45)
+                    .frame(width: 50, height: 50)
                     .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                    .shadow(radius: 10)
             }
             Spacer()
             Text("We're so happy to see you again")

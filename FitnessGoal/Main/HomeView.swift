@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var mealsViewModel: AddNewMealViewModel
+    @EnvironmentObject var userSettings: SettingsViewModel
+    
 
     var body: some View {
         NavigationView {

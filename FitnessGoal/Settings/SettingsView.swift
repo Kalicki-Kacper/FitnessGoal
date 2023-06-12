@@ -53,6 +53,13 @@ struct SettingsView: View {
                                 TextField("Steps", value: $user.data.stepsModel.stepsGoal, format: .number)
                             }
                         }
+                        Section("Select gender:") {
+                            Picker("Gender", selection: $user.data.gender) {
+                                ForEach(Gender.allCases) { item in
+                                    Text(item.rawValue.uppercased())
+                                }
+                            }
+                        }
                         if showBmi {
                             Section("Your BMI:") {
                                 Text(String(format: "%.2f", viewModel.bmi ?? 0))
