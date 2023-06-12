@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum Gender: String, Identifiable, CaseIterable {
+    var id: Self { self }
+    case Male
+    case Female
+    case other
+}
 
 struct UserData: Identifiable {
     let id = UUID()
@@ -15,6 +21,7 @@ struct UserData: Identifiable {
     var weight: Double
     var calories: Int
     var stepsModel: UserSteps
+    var gender: Gender
 }
 
 struct Meal: Identifiable {
@@ -39,7 +46,7 @@ struct StepsModel: Identifiable {
 
 struct ActiveCaloriesModel: Identifiable {
     let id = UUID()
-    let kcalBurned: Int
+    let kcalBurned: Double
     let date: Date
 }
 
@@ -48,7 +55,8 @@ extension UserData {
                                          height: 170,
                                          weight: 55,
                                          calories: 2000,
-                                         stepsModel: .init(currentSteps: 5000, stepsGoal: 15000))
+                                         stepsModel: .init(currentSteps: 5000, stepsGoal: 15000),
+                                         gender: .other)
 }
 
 extension Meal {

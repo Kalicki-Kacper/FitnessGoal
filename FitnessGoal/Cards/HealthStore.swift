@@ -23,7 +23,7 @@ class HealthStore: ObservableObject {
     func calculateStep(completion: @escaping (HKStatisticsCollection?) -> Void? ) {
         let stepsType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
         
-        let startDate = Calendar.current.startOfDay(for: Date())
+        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())
         let daily = DateComponents(day: 1)
         let predicte = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictEndDate)
         
