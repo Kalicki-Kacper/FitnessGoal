@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 class ProgressBarColorModel: ObservableObject {
-        
-    
+
     func setupColor(progress: Double) -> Color {
         if progress <= 0.4 {
             return .cyan
