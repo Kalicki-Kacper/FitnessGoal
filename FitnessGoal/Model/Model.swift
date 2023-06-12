@@ -37,6 +37,11 @@ struct StepsModel: Identifiable {
     let date: Date
 }
 
+struct ActiveCaloriesModel: Identifiable {
+    let id = UUID()
+    let kcalBurned: Int
+    let date: Date
+}
 
 extension UserData {
     static var user: UserData = UserData(age: 20,

@@ -12,6 +12,12 @@ struct CaloriesCardView: View {
     @EnvironmentObject var meals: AddNewMealViewModel
     @ObservedObject var viewModel = CaloriesCardViewViewModel()
     @State var progress: Double = 0
+    var healthStore: HealthStore?
+    
+    init() {
+        healthStore = HealthStore()
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Calories")
@@ -45,8 +51,8 @@ struct CaloriesCardView: View {
                         Image(systemName: "flame")
                             .font(.system(size: 25))
                         VStack(alignment: .leading){
-                            Text("Exercise")
-                            Text("\(viewModel.excerciseBurnCalories)")
+                            Text("Active Calories")
+                            Text("\(viewModel.activeKcal.first?.kcalBurned ?? 0)")
                         }
                     }
                 }
@@ -62,6 +68,18 @@ struct CaloriesCardView: View {
         
         .onAppear {
          progress = viewModel.calculateProgress(Double(meals.caloriesOfMeal),Double( userSettings.data.calories))
+            
+            if let healthStore = healthStore {
+                healthStore.requestAuthorization { success in
+                    if success {
+                        healthStore.activeCalories { activeKcal in
+                            if let activeKcal = activeKcal {
+                                viewModel.updateActiveKcalFromStatistic(activeKcal)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
