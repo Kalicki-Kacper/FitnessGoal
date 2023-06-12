@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var user: SettingsViewModel
     @ObservedObject var viewModel = SettingsViewModel()
-    
+    @State var showBmi = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,17 +26,17 @@ struct SettingsView: View {
                             HStack(){
                                 Text("Age:")
                                 Spacer()                            
-                                TextField("Age", value: $user.user.age, format: .number)
+                                TextField("Age", value: $user.data.age, format: .number)
                             }
                             HStack(){
                                 Text("Weight (Kg):")
                                 Spacer()
-                                TextField("Weight", value: $user.user.weight, format: .number)
+                                TextField("Weight", value: $user.data.weight, format: .number)
                             }
                             HStack(){
                                 Text("Height (cm):")
                                 Spacer()
-                                TextField("Height", value: $user.user.height, format: .number)
+                                TextField("Height", value: $user.data.height, format: .number)
                             }
                          
                         }
@@ -44,27 +44,38 @@ struct SettingsView: View {
                             HStack() {
                                 Text("Calories for day (kcal):")
                                 Spacer()
-                                TextField("Calories for day", value: $user.user.calories, format: .number)
+                                TextField("Calories for day", value: $user.data.calories, format: .number)
                             }
                             
                             HStack() {
                                 Text("Steps:")
                                 Spacer()
-                                TextField("Steps", value: $user.user.stepsModel.stepsGoal, format: .number)
+                                TextField("Steps", value: $user.data.stepsModel.stepsGoal, format: .number)
                             }
                         }
+                        if showBmi {
+                            Section("Your BMI:") {
+                                Text(String(format: "%.2f", viewModel.bmi ?? 0))
+
+                            }
+                        }
+                     
                     }
                     .listStyle(.insetGrouped)
                     .keyboardType(.decimalPad)
                     Spacer()
-                    Button("Save") {
-                        viewModel.saveClick()
+                    if !showBmi {
+                        Button("Calculate BMI") {
+                            viewModel.calculateBMI(user.data)
+                            showBmi = true
+                        }
+                        .frame(width: 150,height: 50, alignment: .center)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        Spacer()
                     }
-                    .frame(width: 150,height: 50, alignment: .center)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    Spacer()
+                   
                 }
             }
         

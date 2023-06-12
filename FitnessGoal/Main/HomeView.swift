@@ -25,7 +25,9 @@ struct HomeView: View {
                             }
                         }
                         .padding(.horizontal)
-                        Spacer()
+                        
+                        Text("Your activity today:")
+                                .font(.title)
                         ScrollView(.horizontal) {
                             HStack(spacing: 25){
                                 StepsCardView()
@@ -35,7 +37,6 @@ struct HomeView: View {
                         
                         Text("Your meals today:")
                             .font(.title)
-                        
                         ScrollView(.horizontal) {
                             HStack (spacing: 25){
                                 ForEach(mealsViewModel.meals) { meal in
@@ -46,6 +47,8 @@ struct HomeView: View {
                         .padding(.horizontal)
                     }
                 }
+                .padding()
+                .shadow(radius: 5)
             }
         }
         .navigationViewStyle(.stack)
