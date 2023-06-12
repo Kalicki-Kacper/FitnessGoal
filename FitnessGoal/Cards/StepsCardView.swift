@@ -29,8 +29,8 @@ struct StepsCardView: View {
                     .font(.system(size: 25))
                 Text("\(viewModel.steps.first?.count ?? 0)")
             }
-            Text("Goal: \(userSettings.user.stepsModel.stepsGoal) steps")
-            ProgressView(value: Float(viewModel.steps.first?.count ?? 0), total: Float(userSettings.user.stepsModel.stepsGoal))
+            Text("Goal: \(userSettings.data.stepsModel.stepsGoal) steps")
+            ProgressView(value: Float(viewModel.steps.first?.count ?? 0), total: Float(userSettings.data.stepsModel.stepsGoal))
                 .accentColor(.blue)
                 .scaleEffect(x: 1, y: 4, anchor: .center)
         }
@@ -39,7 +39,6 @@ struct StepsCardView: View {
         .background(LinearGradient(gradient: Gradient(colors: [.green,.yellow]), startPoint: .top, endPoint: .bottom))
         .foregroundColor(.white)
         .cornerRadius(20)
-        .shadow(radius: 4)
         
         .onAppear {
             if let healthStore = healthStore {

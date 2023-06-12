@@ -11,15 +11,17 @@ import SwiftUI
 
  class SettingsViewModel: ObservableObject {
     
-     @Published var user: UserData
-    
+     @Published var data: UserData
+     @Published var bmi: Double?
     
     init() {
-        user = UserData.user
+        data = UserData.user
     }
     
-    func saveClick() {
-        print(user)
+     func calculateBMI(_ user: UserData) {
+        let height = user.height / 100
+        self.bmi = user.weight / pow(height, 2)
+        
     }
 }
 

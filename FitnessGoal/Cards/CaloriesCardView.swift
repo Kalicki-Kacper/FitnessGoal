@@ -19,15 +19,9 @@ struct CaloriesCardView: View {
                 .bold()
             HStack {
                 ZStack {
-                    VStack {
-                        
-                        CircleProgressBar(progress: $progress)
-//                        Image(systemName: "circle.dashed")
-//                            .font(.system(size: 140))
-//                            .foregroundColor(.yellow)
-                    }
-                    Text("\(meals.caloriesOfMeal) / \(userSettings.user.calories)")
-                        
+                    CircleProgressBar(progress: $progress)
+                    Text("\(meals.caloriesOfMeal) / \(userSettings.data.calories)")
+                    
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 10) {
@@ -36,7 +30,7 @@ struct CaloriesCardView: View {
                             .font(.system(size: 25))
                         VStack(alignment: .leading) {
                             Text("Base Goal")
-                            Text("\(userSettings.user.calories)")
+                            Text("\(userSettings.data.calories)")
                         }
                     }
                     HStack {
@@ -65,8 +59,9 @@ struct CaloriesCardView: View {
         .foregroundColor(.white)
         .shadow(radius: 10)
         .cornerRadius(20)
+        
         .onAppear {
-         progress = viewModel.calculateProgress( Double(meals.caloriesOfMeal),Double( userSettings.user.calories))
+         progress = viewModel.calculateProgress(Double(meals.caloriesOfMeal),Double( userSettings.data.calories))
         }
     }
 }
